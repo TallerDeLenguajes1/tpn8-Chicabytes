@@ -46,6 +46,8 @@
             this.equal = new System.Windows.Forms.Button();
             this.dot = new System.Windows.Forms.Button();
             this.cero = new System.Windows.Forms.Button();
+            this.Lista = new System.Windows.Forms.ListBox();
+            this.Historial = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TB
@@ -54,7 +56,6 @@
             this.TB.Name = "TB";
             this.TB.Size = new System.Drawing.Size(114, 23);
             this.TB.TabIndex = 0;
-            this.TB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // Clear
             // 
@@ -227,11 +228,33 @@
             this.cero.UseVisualStyleBackColor = true;
             this.cero.Click += new System.EventHandler(this.cero_Click);
             // 
+            // Lista
+            // 
+            this.Lista.FormattingEnabled = true;
+            this.Lista.ItemHeight = 15;
+            this.Lista.Location = new System.Drawing.Point(172, 41);
+            this.Lista.Name = "Lista";
+            this.Lista.Size = new System.Drawing.Size(216, 154);
+            this.Lista.TabIndex = 3;
+            this.Lista.DoubleClick += new System.EventHandler(this.Lista_DoubleClick);
+            // 
+            // Historial
+            // 
+            this.Historial.AutoSize = true;
+            this.Historial.Font = new System.Drawing.Font("Viner Hand ITC", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Historial.Location = new System.Drawing.Point(172, 16);
+            this.Historial.Name = "Historial";
+            this.Historial.Size = new System.Drawing.Size(173, 21);
+            this.Historial.TabIndex = 4;
+            this.Historial.Text = "Historial de Operaciones";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(176, 205);
+            this.ClientSize = new System.Drawing.Size(400, 205);
+            this.Controls.Add(this.Historial);
+            this.Controls.Add(this.Lista);
             this.Controls.Add(this.cero);
             this.Controls.Add(this.dot);
             this.Controls.Add(this.equal);
@@ -277,6 +300,8 @@
         private System.Windows.Forms.Button equal;
         private System.Windows.Forms.Button dot;
         private System.Windows.Forms.Button cero;
+        private System.Windows.Forms.ListBox Lista;
+        private System.Windows.Forms.Label Historial;
     }
 }
 

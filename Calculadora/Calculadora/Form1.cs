@@ -92,67 +92,71 @@ namespace Calculadora
         {
             TB.Text += "9";
         }
-         private void equal_Click(object sender, EventArgs e)
-         {
-            string TextoCompleto = TB.Text;
-            Calculadora Calculo = new Calculadora();
-            if (TB.Text.Contains('+'))
-            {
-                string[] ArreText = TextoCompleto.Split('+');
-                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
-                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
-                TB.Text = Calculo.Suma().ToString();
-            }
-            else if(TB.Text.Contains('-'))
-            {
-                string[] ArreText = TextoCompleto.Split('-');
-                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
-                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
-                TB.Text = Calculo.Resta().ToString();
-            }
-            else if (TB.Text.Contains('*'))
-            {
-                string[] ArreText = TextoCompleto.Split('*');
-                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
-                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
-                TB.Text = Calculo.Multiplicacion().ToString();
-            }
-            else if(TB.Text.Contains('/'))
-            {
-                string[] ArreText = TextoCompleto.Split('/');
-                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
-                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
-                TB.Text = Calculo.Division().ToString();
-            }
-
-        }
 
         private void Clear_Click(object sender, EventArgs e)
         {
             TB.Text = "";
         }
 
-        private void TB_KeyDown(object sender, KeyEventArgs e)
+        private void equal_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.NumPad0) cero_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad1) one_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad2) two_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad3) three_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad4) four_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad5) five_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad6) six_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad7) seven_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad8) eight_Click(sender, e);
-            if (e.KeyCode == Keys.NumPad9) nine_Click(sender, e);
+            string TextoCompleto = TB.Text;
+            Calculadora Calculo = new Calculadora();
+            Calculo.fecha = DateTime.Now;
 
-            if (e.KeyCode == Keys.Decimal) dot_Click(sender, e);
+            if (TB.Text.Contains('+'))
+            {
+                string[] ArreText = TextoCompleto.Split('+');
+                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
+                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
+                Calculo.Operador = '+';
+                TB.Text = Calculo.Operacion().ToString();
+                Lista.Items.Add(Calculo);
+                Lista.Refresh();
+            }
+            else if (TB.Text.Contains('-'))
+            {
+                string[] ArreText = TextoCompleto.Split('-');
+                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
+                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
+                Calculo.Operador = '-';
+                TB.Text = Calculo.Operacion().ToString();
+                Lista.Items.Add(Calculo);
+                Lista.Refresh();
+            }
+            else if (TB.Text.Contains('*'))
+            {
+                string[] ArreText = TextoCompleto.Split('*');
+                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
+                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
+                Calculo.Operador = '*';
+                TB.Text = Calculo.Operacion().ToString();
+                Lista.Items.Add(Calculo);
+                Lista.Refresh();
+            }
+            else if (TB.Text.Contains('/'))
+            {
+                string[] ArreText = TextoCompleto.Split('/');
+                Calculo.numero1 = Convert.ToSingle(ArreText[0]);
+                Calculo.numero2 = Convert.ToSingle(ArreText[1]);
+                Calculo.Operador = '/';
+                if (Calculo.Operacion() == 0)
+                {
+                    TB.Text = "Indefinido";
+                }
+                else
+                {
+                    TB.Text = Calculo.Operacion().ToString();
+                }
+                Lista.Items.Add(Calculo);
+                Lista.Refresh();
+            }
 
-            if (e.KeyCode == Keys.Add) plus_Click(sender, e);
-            if (e.KeyCode == Keys.Subtract) minus_Click(sender, e);
-            if (e.KeyCode == Keys.Multiply) asterisk_Click(sender, e);
-            if (e.KeyCode == Keys.Divide) slash_Click(sender, e);
+        }
 
-            if (e.KeyCode == Keys.Return) equal_Click(sender, e);
+        private void Lista_DoubleClick(object sender, EventArgs e)
+        {
+            Lista.Items.Remove(Lista.SelectedItem);
         }
     }
 }
