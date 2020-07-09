@@ -56,6 +56,7 @@
             this.TB.Name = "TB";
             this.TB.Size = new System.Drawing.Size(114, 23);
             this.TB.TabIndex = 0;
+            this.TB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_KeyPress);
             // 
             // Clear
             // 
@@ -241,10 +242,10 @@
             // Historial
             // 
             this.Historial.AutoSize = true;
-            this.Historial.Font = new System.Drawing.Font("Viner Hand ITC", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Historial.Location = new System.Drawing.Point(172, 16);
+            this.Historial.Font = new System.Drawing.Font("Weatpoint", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Historial.Location = new System.Drawing.Point(190, 12);
             this.Historial.Name = "Historial";
-            this.Historial.Size = new System.Drawing.Size(173, 21);
+            this.Historial.Size = new System.Drawing.Size(198, 28);
             this.Historial.TabIndex = 4;
             this.Historial.Text = "Historial de Operaciones";
             // 

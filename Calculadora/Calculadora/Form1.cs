@@ -158,5 +158,84 @@ namespace Calculadora
         {
             Lista.Items.Remove(Lista.SelectedItem);
         }
+
+        private void TB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.D0))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D1))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D2))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D3))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D4))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D5))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D6))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D7))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D8))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.D9))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                equal_Click(sender, e);
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '+')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '-')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '*')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '/')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.Back))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == Convert.ToChar(Keys.Escape))
+            {
+                Application.Exit();
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            
+        }
     }
 }
